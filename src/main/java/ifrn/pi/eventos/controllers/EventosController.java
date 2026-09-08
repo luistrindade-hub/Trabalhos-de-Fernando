@@ -13,19 +13,20 @@ import ifrn.pi.eventos.repositories.EventoRepository;
 public class EventosController {
 	
 	//ta dando erro aqui, video parado la pelos 45 pra cima!!
+	//consertei porra AMEM
 	
 	@Autowired
 	private EventoRepository er;
 
 	@RequestMapping("/eventos/form")
 	public String form() {
-		return "formEvento";
+		return "eventos/formEvento";
 	}
 
 	@PostMapping("/eventos/passo1")
 	public String salvarPasso1() {
 		System.out.println("Formulário submetido com sucesso!");
-		return "formEvento";
+		return "eventos/formEvento";
 	}
 
 	@RequestMapping(path = "/eventos", method = RequestMethod.POST)
@@ -35,7 +36,7 @@ public class EventosController {
 		er.save(evento);
 		
 		
-		return "evento-adicionado";
+		return "eventos/evento-adicionado";
 
 	}
 }
